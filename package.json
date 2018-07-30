@@ -1,0 +1,35 @@
+{
+  "name": "psych_meds_app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "both": "concurrently \"cd client && REACT_APP_SECRET=authorized yarn start\" \"npm run dev\"",
+    "rundb": "psql -f db/schema.sql && psql -f db/seed.sql",
+    "clean": "rm -rf node_modules && rm -rf client/node_modules && rm -rf client/dist",
+    "react-install": "cd client && yarn install",
+    "installer": "yarn install && npm run react-install",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philyoosays/med-reviews-mobileapp.git"
+  },
+  "author": "Phil Yoo (philyoomail@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philyoosays/med-reviews-mobileapp/issues"
+  },
+  "homepage": "https://github.com/philyoosays/med-reviews-mobileapp#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "pg-promise": "^8.4.5"
+  }
+}
